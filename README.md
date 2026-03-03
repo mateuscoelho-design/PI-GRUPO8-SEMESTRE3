@@ -8,6 +8,7 @@ Projeto Integrado - Terceiro semestre - Modulo Desenvolvimento de Sistemas Móve
 - Pedro Henrique Breda Domingues RA: 25000578
 - Felipe Grossi Pereira RA: 25000473
 - João Vitor Zamai Martins RA: 25000783
+- Augusto De Pauli Duarte RA: 25000087
 
 
 # Sistema Mobile de Monitoramento de Produção – PackBag
