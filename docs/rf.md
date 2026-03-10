@@ -17,7 +17,6 @@ O sistema deve permitir que usuários cadastrados realizem login utilizando e-ma
 
 O sistema deve permitir que o usuário solicite a redefinição de senha por meio do e-mail cadastrado.
 
----
 
 ## RF04 — Atualização de Perfil
 
