@@ -1,4 +1,4 @@
-name: projetogrupo8
+name: projeto01
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.11.1
+  sdk: ^3.11.0
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -58,7 +58,11 @@ flutter:
   uses-material-design: true
 
   assets:
-    - lib/assets/
+    - lib/assets/packbag.png
+    - lib/assets/pblogo.png
+    - lib/assets/voltar.png
+    - lib/assets/maquina.png
+    - lib/assets/pbtexto.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
