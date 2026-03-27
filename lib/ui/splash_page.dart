@@ -2,6 +2,9 @@ import 'package:flutter/widgets.dart';
 
 import 'package:flutter/material.dart';
 
+import 'package:projeto01/ui/login_screen.dart';
+import 'package:projeto01/ui/cadastro_screen.dart';
+
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
 
@@ -26,56 +29,64 @@ class SplashPage extends StatelessWidget {
               ),
             ),
 
-            Container(
-              margin: EdgeInsets.only(bottom: 20),
-              height: 40,
+            SizedBox(
               width: 150,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black38,
-                    blurRadius: 18,
-                    offset: Offset(0, 10),
+              height: 40,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginScreen(),
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                ],
-              ),
-              child: Text(
-                'Entrar',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  decoration: TextDecoration.none,
+                  elevation: 10,
+                  shadowColor: Colors.black38,
+                ),
+                child: Text(
+                  'Entrar',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
 
             SizedBox(height: 10),
 
-            Container(
-              margin: EdgeInsets.only(bottom: 20),
-              height: 40,
+            SizedBox(
               width: 150,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black38,
-                    blurRadius: 18,
-                    offset: Offset(0, 10),
+              height: 40,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CadastroScreen(),
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                ],
-              ),
-              child: Text(
-                'Criar Conta',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.black,
-                  decoration: TextDecoration.none,
+                  elevation: 10,
+                  shadowColor: Colors.black38,
+                ),
+                child: Text(
+                  'Criar Conta',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                  ),
                 ),
               ),
             ),
