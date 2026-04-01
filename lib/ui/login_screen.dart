@@ -24,7 +24,7 @@ class LoginScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const SizedBox(height: 24),
+                    //const SizedBox(height: 20),
                     Image.asset(
                       'lib/assets/packbag.png',
                       height: 500,
@@ -55,44 +55,41 @@ class LoginScreen extends StatelessWidget {
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Container(
-                              margin: const EdgeInsets.only(bottom: 16),
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 16,
-                                vertical: 14,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(color: Colors.grey.shade300),
-                              ),
-                              child: const Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  'Login',
-                                  style: TextStyle(color: Colors.black54),
-                                ),
+                            TextFormField(
+                              /*controller: viewModel.emailController,*/
+                              keyboardType: TextInputType.emailAddress,
+                              /*validator: viewModel.emailValidator,*/
+                              decoration: const InputDecoration(
+                                labelText: "Email",
+                                border: OutlineInputBorder(),
+                                prefixIcon: Icon(Icons.email_outlined),
+                                filled: true,
+                                fillColor: Colors.white
                               ),
                             ),
-                            Container(
-                              margin: const EdgeInsets.only(bottom: 24),
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 16,
-                                vertical: 14,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(color: Colors.grey.shade300),
-                              ),
-                              child: const Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  'Senha',
-                                  style: TextStyle(color: Colors.black54),
+                            SizedBox(height: 25),
+                            TextFormField(
+                              /*controller: viewModel.passwordController,
+                              obscureText: viewModel.obscurePassword,
+                              validator: viewModel.passwordValidator,*/
+                              decoration: InputDecoration(
+                                labelText: "Senha",
+                                border: OutlineInputBorder(),
+                                prefixIcon: Icon(Icons.lock_outlined),
+                                suffixIcon: IconButton(
+                                  onPressed: (){},//viewModel.togglePasswordVisibility,
+                                  icon: Icon(
+                                    /*viewModel.obscurePassword
+                                        ? Icons.visibility
+                                        : Icons.visibility_off, */
+                                      Icons.visibility_off
+                                  ),
                                 ),
+                                filled: true,
+                                fillColor: Colors.white
                               ),
                             ),
+                            SizedBox(height: 25),
                             Row(
                               children: [
                                 Expanded(
@@ -109,25 +106,6 @@ class LoginScreen extends StatelessWidget {
                                     ),
                                     child: const Text(
                                       'Entrar',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(width: 16),
-                                Expanded(
-                                  child: ElevatedButton(
-                                    onPressed: () {},
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.deepOrange,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(20),
-                                      ),
-                                      padding: const EdgeInsets.symmetric(
-                                        vertical: 14,
-                                      ),
-                                    ),
-                                    child: const Text(
-                                      'Fazer Login',
                                       style: TextStyle(color: Colors.white),
                                     ),
                                   ),

@@ -1,7 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:PIGRUPO8SEMESTRE3main/viewmodels/register_viewmodel.dart';
 
-class CadastroScreen extends StatelessWidget {
+class CadastroScreen extends StatefulWidget {
   const CadastroScreen({super.key});
+
+  @override
+  State<CadastroScreen> createState() => _CadastroScreenState();
+}
+
+class _CadastroScreenState extends State<CadastroScreen> {
+  late final RegisterViewmodel viewModel;
+  
+  @override
+  void initState() {
+    super.initState();
+    viewModel = RegisterViewmodel();
+  }
+
+  @override
+  void dispose() {
+    viewModel.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,110 +90,138 @@ class CadastroScreen extends StatelessWidget {
                           ],
                         ),
 
-                        child: Column(
-                          children: [
-                            Container(
-                              //e-mail
-                              margin: EdgeInsets.only(top: 50),
-                              height: 60,
-                              width: 250,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(25),
+                        child: Padding(
+                          padding: EdgeInsets.all(20),
+                          child: Column(
+                            children: [
+                              Icon(
+                                Icons.account_circle,
+                                size: 100,
                               ),
-                              child: Text(
-                                'E-mail',
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  color: Colors.grey,
+                              
+                              SizedBox(height: 30,),
+                              
+                              TextFormField(
+                                controller: viewModel.emailController,
+                                keyboardType: TextInputType.emailAddress,
+                                validator: viewModel.emailValidator,
+                                decoration: const InputDecoration(
+                                  labelText: "Email",
+                                  border: OutlineInputBorder(),
+                                  prefixIcon: Icon(Icons.email_outlined),
+                                  filled: true,
+                                  fillColor: Colors.white
                                 ),
                               ),
-                            ),
 
-                            Container(
-                              //usuario
-                              margin: EdgeInsets.only(top: 50),
-                              height: 60,
-                              width: 250,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(25),
-                              ),
-                              child: Text(
-                                'Nome de Usuário',
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  color: Colors.grey,
+                              SizedBox(height: 20,),
+
+                              TextFormField(
+                                controller: viewModel.nomeController,
+                                keyboardType: TextInputType.text,
+                                validator: viewModel.nomeValidator,
+                                decoration: const InputDecoration(
+                                  labelText: "Usuário",
+                                  border: OutlineInputBorder(),
+                                  prefixIcon: Icon(Icons.account_circle_outlined),
+                                  filled: true,
+                                  fillColor: Colors.white
                                 ),
                               ),
-                            ),
 
-                            Container(
-                              //senha
-                              margin: EdgeInsets.only(top: 50),
-                              height: 60,
-                              width: 250,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(25),
-                              ),
-                              child: Text(
-                                'Senha',
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                            ),
+                              SizedBox(height: 20,),
 
-                            Container(
-                              //Confirmar
-                              margin: EdgeInsets.only(top: 50),
-                              height: 60,
-                              width: 250,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(25),
-                              ),
-                              child: Text(
-                                'Confirmar Senha',
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                            ),
-
-                            Container(
-                              //criar
-                              margin: EdgeInsets.only(top: 50),
-                              height: 40,
-                              width: 150,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: Colors.deepOrange,
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black38,
-                                    blurRadius: 18,
-                                    offset: Offset(0, 10),
+                              TextFormField(
+                                controller: viewModel.passwordController,
+                                obscureText: viewModel.obscurePassword,
+                                validator: viewModel.passwordValidator,
+                                decoration: InputDecoration(
+                                  labelText: "Senha",
+                                  border: OutlineInputBorder(),
+                                  prefixIcon: Icon(Icons.lock_outlined),
+                                  suffixIcon: IconButton(
+                                    onPressed: viewModel.togglePasswordVisibility,
+                                    icon: Icon(
+                                      viewModel.obscurePassword
+                                          ? Icons.visibility
+                                          : Icons.visibility_off,
+                                    ),
                                   ),
-                                ],
-                              ),
-                              child: Text(
-                                'Criar Conta',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
+                                  filled: true,
+                                  fillColor: Colors.white
                                 ),
                               ),
-                            ),
-                          ],
+
+                              SizedBox(height: 20,),
+
+                              TextFormField(
+                                controller: viewModel.passwordController,
+                                obscureText: viewModel.obscurePassword,
+                                validator: viewModel.passwordValidator,
+                                decoration: InputDecoration(
+                                  labelText: "Confirmar Senha",
+                                  border: OutlineInputBorder(),
+                                  prefixIcon: Icon(Icons.lock_outlined),
+                                  suffixIcon: IconButton(
+                                    onPressed: viewModel.togglePasswordVisibility,
+                                    icon: Icon(
+                                      viewModel.obscurePassword
+                                          ? Icons.visibility
+                                          : Icons.visibility_off,
+                                    ),
+                                  ),
+                                  filled: true,
+                                  fillColor: Colors.white
+                                ),
+                              ),
+                              
+                              SizedBox(height: 30,),
+
+                              ElevatedButton(
+                                onPressed: viewModel.isLoading ? null : () {
+                                  /*final error = viewModel.register();
+
+                                  if (error == "form_error") return;
+
+                                  if (error != null) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text(error)),
+                                    );
+                                  } else {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => HomePage()),
+                                    );
+                                  }*/
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.deepOrange,
+                                  minimumSize: const Size(150, 40), // width e height
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  elevation: 10,
+                                  shadowColor: Colors.black38,
+                                ),
+                                child: viewModel.isLoading
+                                    ? const SizedBox(
+                                        width: 22,
+                                        height: 22,
+                                        child: CircularProgressIndicator(
+                                          strokeWidth: 2,
+                                          color: Colors.white,
+                                        ),
+                                      )
+                                    : const Text(
+                                        "Criar Conta",
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                              )
+                            ]
+                          ),
                         ),
                       ),
                     ),

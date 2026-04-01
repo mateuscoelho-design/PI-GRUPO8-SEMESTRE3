@@ -2,8 +2,8 @@ import 'package:flutter/widgets.dart';
 
 import 'package:flutter/material.dart';
 
-import 'package:projeto01/ui/login_screen.dart';
-import 'package:projeto01/ui/cadastro_screen.dart';
+import 'package:PIGRUPO8SEMESTRE3main/ui/login_screen.dart';
+import 'package:PIGRUPO8SEMESTRE3main/ui/cadastro_screen.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
