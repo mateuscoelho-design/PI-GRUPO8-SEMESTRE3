@@ -1,5 +1,6 @@
+import 'package:PIGRUPO8SEMESTRE3main/ui/splash_page.dart';
 import 'package:flutter/material.dart';
-import 'package:projetogrupo8/ui/login_screen.dart';
+import 'package:PIGRUPO8SEMESTRE3main/ui/splash_page.dart';
 
 void main() {
   runApp(
@@ -7,8 +8,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       title: "Projeto Grupo 8",
       theme: ThemeData(useMaterial3: true),
-      home: LoginScreen(),
-      //Ainda nao conectamos as telas, pode alternar trocando LoginScreen por CadastroScreen para testar a tela de cadastro
+      home: SplashPage(),
     ),
   );
 }
