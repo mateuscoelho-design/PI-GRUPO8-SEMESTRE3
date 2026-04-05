@@ -10,7 +10,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
   late final LoginViewmodel viewModel;
 
   @override
@@ -52,28 +51,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 400,
                       fit: BoxFit.contain,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 24,
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+                      decoration: const BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(24),
+                          topRight: Radius.circular(24),
+                        ),
                       ),
-                      child: Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 24,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.circular(24),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black26,
-                              blurRadius: 16,
-                              offset: Offset(0, 8),
-                            ),
-                          ],
-                        ),
+                      child: Form(
+                        key: viewModel.formKey,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
@@ -86,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 border: OutlineInputBorder(),
                                 prefixIcon: Icon(Icons.email_outlined),
                                 filled: true,
-                                fillColor: Colors.white
+                                fillColor: Colors.white,
                               ),
                             ),
                             SizedBox(height: 20),
@@ -107,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                 ),
                                 filled: true,
-                                fillColor: Colors.white
+                                fillColor: Colors.white,
                               ),
                             ),
                             SizedBox(height: 15),
@@ -116,24 +105,42 @@ class _LoginScreenState extends State<LoginScreen> {
                                 SizedBox(
                                   width: double.infinity,
                                   child: ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: viewModel.isLoading
+                                        ? null
+                                        : () => viewModel.login(context),
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.deepOrange,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(20),
                                       ),
-                                      padding: const EdgeInsets.symmetric(vertical: 14),
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 14,
+                                      ),
                                     ),
-                                    child: const Text(
-                                      'Entrar',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
+                                    child: viewModel.isLoading
+                                        ? const SizedBox(
+                                            width: 22,
+                                            height: 22,
+                                            child: CircularProgressIndicator(
+                                              strokeWidth: 2,
+                                              color: Colors.white,
+                                            ),
+                                          )
+                                        : const Text(
+                                            'Entrar',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                            ),
+                                          ),
                                   ),
                                 ),
                                 const SizedBox(height: 2),
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.pushNamed(context, AppRoutes.register);
+                                    Navigator.pushNamed(
+                                      context,
+                                      AppRoutes.register,
+                                    );
                                   },
                                   child: const Text(
                                     "Criar conta",
