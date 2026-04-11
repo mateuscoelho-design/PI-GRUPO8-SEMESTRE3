@@ -44,3 +44,8 @@ Para acessar o sistema de monitoramento da produção.
 - As senhas devem ser armazenadas de forma segura.
 
 ---
+
+### Diagrama de Atividade
+
+<img width="701" height="534" alt="image" src="https://github.com/user-attachments/assets/a34fc54a-68fa-44f9-81fe-edf9621f7146" />
+
