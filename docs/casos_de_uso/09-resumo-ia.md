@@ -34,3 +34,7 @@ Para entender rapidamente o desempenho do dia.
 - O resumo deve considerar dados de produção do dia.
 
 ---
+
+### Diagrama de Atividade
+
+<img width="816" height="524" alt="image" src="https://github.com/user-attachments/assets/183cf76f-1d51-48bd-a4d6-c6887e0a0513" />
