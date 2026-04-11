@@ -33,3 +33,7 @@ Para monitorar a produção de cada equipamento.
 - Deve salvar os dados da máquina no sistema.
 
 ---
+
+### Diagrama de Atividade
+
+<img width="697" height="547" alt="image" src="https://github.com/user-attachments/assets/46131115-7751-41b5-a9ed-5f1474025336" />
