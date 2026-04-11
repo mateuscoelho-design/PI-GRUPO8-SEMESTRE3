@@ -32,3 +32,7 @@ Para organizar a responsabilidade de uso.
 - A associação deve ser salva.
 
 ---
+
+### Diagrama de Atividade
+
+<img width="770" height="794" alt="image" src="https://github.com/user-attachments/assets/c5aaf43e-ab53-4baa-ab4e-ab167a2135f7" />
