@@ -43,3 +43,8 @@ Para acessar o sistema de monitoramento de produção.
 - Usuários inativos por mais de 90 dias devem autenticar novamente.
 
 ---
+
+### Diagrama de Atividade
+
+<img width="775" height="574" alt="image" src="https://github.com/user-attachments/assets/c80c9e63-4f57-4601-8a15-0ade8da83478" />
+
