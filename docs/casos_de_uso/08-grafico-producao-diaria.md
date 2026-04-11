@@ -32,3 +32,7 @@ Para acompanhar o desempenho diário.
 - Os dados devem vir das máquinas cadastradas.
 
 ---
+
+### Diagrama de Atividade
+
+<img width="552" height="573" alt="image" src="https://github.com/user-attachments/assets/531010e5-85f5-487b-af9c-3c9d947655ed" />
