@@ -33,3 +33,8 @@ Para voltar a acessar minha conta.
 - O link deve expirar após determinado tempo.
 
 ---
+
+### Diagrama de Atividade
+
+<img width="767" height="684" alt="image" src="https://github.com/user-attachments/assets/f353bc42-c39d-4939-909c-41030c0a0fef" />
+
